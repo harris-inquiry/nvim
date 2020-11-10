@@ -7,7 +7,7 @@ let g:which_key_timeout = 100
 
 let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 
-" Map leader to which_key
+" Map sdleader to which_key
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
@@ -18,12 +18,15 @@ let g:which_key_sep = '→'
 " set timeoutlen=100
 
 " Coc Search & refactor
-nnoremap <leader>? CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
 let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
+
+" Exit which key
+let g:which_key_exit = ["\<C-[>", "\<Esc>", "\<C-G>", "\<C-C>"]
 
 " let g:which_key_position = 'botright'
 " let g:which_key_position = 'topleft'
@@ -53,6 +56,11 @@ let g:which_key_map['u'] = [ ':UndotreeToggle'                                 ,
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()'               , 'move window' ]
 let g:which_key_map['z'] = [ 'Goyo'                                            , 'zen' ]
+let g:which_key_map['1'] = [ ':tabn1'                                          , 'Tabs1-5' ]
+let g:which_key_map['2'] = [ ':tabn2'                                          , 'which_key_ignore' ]
+let g:which_key_map['3'] = [ ':tabn3'                                          , 'which_key_ignore' ]
+let g:which_key_map['4'] = [ ':tabn4'                                          , 'which_key_ignore' ]
+let g:which_key_map['5'] = [ ':tabn5'                                          , 'which_key_ignore' ]
 
 " Group mappings
 
@@ -78,28 +86,16 @@ let g:which_key_map.a = {
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ '>' : [':BufferMoveNext'        , 'move next'],
-      \ '<' : [':BufferMovePrevious'    , 'move prev'],
-      \ '1' : [':BufferGoto 1'          , 'buffer 1'],
-      \ '2' : [':BufferGoto 2'          , 'buffer 2'],
-      \ '3' : [':BufferGoto 3'          , 'buffer 3'],
-      \ '4' : [':BufferGoto 4'          , 'buffer 4'],
-      \ '5' : [':BufferGoto 5'          , 'buffer 5'],
-      \ '6' : [':BufferGoto 6'          , 'buffer 6'],
-      \ '7' : [':BufferGoto 7'          , 'buffer 7'],
-      \ '8' : [':BufferGoto 8'          , 'buffer 8'],
-      \ '9' : [':BufferGoto 9'          , 'buffer 9'],
-      \ '0' : [':BufferGoto 0'          , 'buffer 0'],
-      \ 'b' : [':BufferPick'            , 'pick buffer'],
-      \ 'd' : [':Bdelete'               , 'delete-buffer'],
+      \ 'd' : [':bdelete'               , 'delete-buffer'],
       \ 'D' : [':BufferOrderByDirectory', 'order by directory'],
-      \ 'f' : ['bfirst'                 , 'first-buffer'],
-      \ 'l' : ['blast'                  , 'last buffer'],
+      \ 'l' : [':b#'                  , 'last buffer'],
       \ 'L' : [':BufferOrderByLanguage' , 'order by language'],
       \ 'n' : ['bnext'                  , 'next-buffer'],
       \ 'p' : ['bprevious'              , 'previous-buffer'],
-      \ '?' : ['Buffers'                , 'fzf-buffer'],
+      \ 'b' : ['Buffers'                , 'fzf-buffer'],
       \ }
+      " \ 'b' : [':BufferPick'            , 'pick buffer'],
+      " NOTE: Not working for me -> moved to 'Buffers'
 
 " d is for debug
 let g:which_key_map.d = {
@@ -118,8 +114,16 @@ let g:which_key_map.d = {
       \ 's' : ['<Plug>VimspectorStop'                          , 'stop'],
       \ }
 
-" f is for find and replace
+
+" f is for files
 let g:which_key_map.f = {
+      \ 'name' : "+files",
+      \ 'f' : [':Files'  , 'search files' ],
+      \ 's' : [':w'      , 'save'],
+      \}
+
+" r is for files
+let g:which_key_map.r = {
       \ 'name' : '+find & replace' ,
       \ 'f' : [':Farr --source=vimgrep'    , 'file'],
       \ 'p' : [':Farr --source=rgnvim'     , 'project'],
@@ -323,8 +327,23 @@ let g:which_key_map.l = {
       \ }
       " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
 
-" t is for terminal
+" t is for tabs
 let g:which_key_map.t = {
+      \ 'name' : '+tabs',
+      \ 't' : [':tabnew' , 'new tab'],
+      \ 'n' : [':tabn'   , 'next tab'],
+      \ 'p' : [':tabp'   , 'previous tab'],
+      \ 'c' : [':tabc'   , 'close'],
+      \ 'd' : [':tabc'   , 'close'],
+      \ '1' : [':tabn1'  , 'switch to tab 1-9'],
+      \ '2' : [':tabn2'  , 'which_key_ignore'],
+      \ '3' : [':tabn3'  , 'which_key_ignore'],
+      \ '4' : [':tabn4'  , 'which_key_ignore'],
+      \ '5' : [':tabn5'  , 'which_key_ignore'],
+      \ }
+
+" T is for terminal
+let g:which_key_map.T = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=normal --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
@@ -332,7 +351,7 @@ let g:which_key_map.t = {
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
       \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
+      \ 'p' : [':FloatermNew python3'                           , 'python'],
       \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],

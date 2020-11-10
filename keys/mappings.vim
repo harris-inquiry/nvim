@@ -1,9 +1,5 @@
 " Basic Key Mappings
 
-imap <C-h> <C-w>h
-imap <C-j> <C-w>j
-imap <C-k> <C-w>k
-imap <C-l> <C-w>l
 " g Leader key
 let mapleader=" "
 " let localleader=" "
@@ -12,6 +8,37 @@ nnoremap <Space> <Nop>
 " Better indenting
 vnoremap < <gv
 vnoremap > >gv
+
+" My remaps
+nnoremap <C-l> zz
+noremap <silent> <C-t> :CocCommand explorer --toggle --sources=file+<CR>
+
+" Emacs movement
+noremap <C-f> <Right>
+noremap! <C-f> <Right>
+noremap <C-b> <Left>
+noremap! <C-b> <Left>
+" inoremap <C-n> <Down>
+" inoremap <C-p> <Up>
+inoremap <C-e> <End>
+inoremap <C-a> <C-o>^
+cnoremap <C-a> <Home>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>d$
+inoremap <C-_> <C-o>:undo<cr>
+inoremap <M-_> <C-o>:redo<cr>
+" Emacs escape
+noremap <C-g> <Esc>
+noremap! <C-g> <C-c>
+
+" better movement
+map 0 ^
+map - $
+
+" ERROR: Can't seem to map the '/' key
+" noremap <C-/> :Commentary<cr>
+" inoremap <C-/> <C-o>:Commentary<cr>
+
 
 if exists('g:vscode')
 
@@ -22,12 +49,9 @@ if exists('g:vscode')
 else
 
   " Better nav for omnicomplete
-  inoremap <expr> <c-j> ("\<C-n>")
-  inoremap <expr> <c-k> ("\<C-p>")
-
-  " I hate escape more than anything else
-  inoremap jk <Esc>
-  inoremap kj <Esc>
+    " NOTE removed
+  " inoremap <expr> <c-j> ("\<C-n>")
+  " inoremap <expr> <c-k> ("\<C-p>")
 
   " Easy CAPS
   " inoremap <c-u> <ESC>viwUi
@@ -38,6 +62,9 @@ else
   " SHIFT-TAB will go back
   nnoremap <silent> <S-TAB> :bprevious<CR>
 
+  " Tab movement
+  nnoremap <silent
+
   " Move selected line / block of text in visual mode
   " shift + k to move up
   " shift + j to move down
@@ -45,30 +72,20 @@ else
   xnoremap J :move '>+1<CR>gv-gv
 
   " Alternate way to save
-  nnoremap <silent> <C-s> :w<CR>
+  " nnoremap <silent> <C-s> :w<CR>
   " Alternate way to quit
-  nnoremap <silent> <C-Q> :wq!<CR>
+  " nnoremap <silent> <C-Q> :wq!<CR>
   " Use control-c instead of escape
   nnoremap <silent> <C-c> <Esc>
   " <TAB>: completion.
   inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-  " Better window navigation
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-
   " Terminal window navigation
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
-  inoremap <C-h> <C-\><C-N><C-w>h
-  inoremap <C-j> <C-\><C-N><C-w>j
-  inoremap <C-k> <C-\><C-N><C-w>k
-  inoremap <C-l> <C-\><C-N><C-w>l
-  tnoremap <Esc> <C-\><C-n>
+  " tnoremap <C-h> <C-\><C-N><C-w>h
+  " tnoremap <C-j> <C-\><C-N><C-w>j
+  " tnoremap <C-k> <C-\><C-N><C-w>k
+  " tnoremap <C-l> <C-\><C-N><C-w>l
+  " tnoremap <Esc> <C-\><C-n>
 
   " Use alt + hjkl to resize windows
   " nnoremap <silent> <M-j>    :resize -2<CR>

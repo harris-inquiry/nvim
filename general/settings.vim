@@ -37,6 +37,11 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set incsearch
 set guifont=JetBrainsMono\ Nerd\ Font
 
+" My changes
+set ignorecase
+set smartcase
+
+
 " New stuff
 " set notimeout nottimeout
 " set scrolloff=1
