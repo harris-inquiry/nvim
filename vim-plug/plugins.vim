@@ -30,6 +30,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'machakann/vim-highlightedyank'
   else
 
+    " NerdTree navigation
+    Plug 'preservim/nerdtree'
+
     " Easymotion
     Plug 'easymotion/vim-easymotion'
     " Surround
@@ -51,23 +54,23 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Closetags
     Plug 'alvan/vim-closetag'
     " Themes
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'joshdick/onedark.vim'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
-    " Plug 'glepnir/galaxyline.nvim'
-    " Alternative status line
-    Plug 'vim-airline/vim-airline'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'kevinhwang91/rnvimr'
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
+    " Plug 'tpope/vim-rhubarb'
+    " NOTE: removed -> not using git-hub
     Plug 'junegunn/gv.vim'
     Plug 'rhysd/git-messenger.vim'
     " Terminal
@@ -113,7 +116,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Intuitive buffer closing
     Plug 'moll/vim-bbye'
     " Debugging
-    Plug 'puremourning/vimspector'
+    " Plug 'puremourning/vimspector'
     Plug 'szw/vim-maximizer'
     " Rainbow brackets
     " Plug 'luochen1990/rainbow'
@@ -157,8 +160,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Echo doc
     " Plug 'Shougo/echodoc.vim'
     " Plug 'hardcoreplayers/spaceline.vim'
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
     " Ranger
     " Plug 'francoiscabrol/ranger.vim'
     " Plug 'rbgrouleff/bclose.vim'

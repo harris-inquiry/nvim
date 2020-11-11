@@ -8,6 +8,12 @@
     "function": ""
   },
 
+  // only trigger when requested?
+  "suggest.autoTrigger": "trigger",
+  "coc.source.file.triggerCharacters": ["/", "."],
+  "cursors.nextKey": "<C-j>",
+  "cursors.previousKey": "<C-k>",
+
   // diagnostics
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
@@ -25,18 +31,6 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
 
-  // autoformat
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "javascript",
-    "graphql",
-    "html",
-    "yaml",
-    "json",
-    "python",
-    "java"
-  ],
   "coc.preferences.hoverTarget": "float",
 
   // python config
@@ -64,18 +58,6 @@
   "less.validate": false,
   "scss.validate": false,
   "wxss.validate": false,
-
-  // explorer
-  "explorer.width": 30,
-  "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.icon.enableVimDevicons": false,
-  "explorer.file.showHiddenFiles": false,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
 
   "bookmark.sign": "",
 

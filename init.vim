@@ -23,7 +23,7 @@ else
 
   " Themes
   source $HOME/.config/nvim/themes/syntax.vim
-  source $HOME/.config/nvim/themes/nvcode.vim
+  source $HOME/.config/nvim/themes/onedark.vim
 
   " Plugin Configuration
   source $HOME/.config/nvim/keys/which-key.vim
@@ -56,7 +56,6 @@ else
   " NOTE ERROR: installing with npm
   source $HOME/.config/nvim/plug-config/neovide.vim
   luafile $HOME/.config/nvim/lua/plug-colorizer.lua
-  source $HOME/.config/nvim/plug-config/vimspector.vim
   " source $HOME/.config/nvim/plug-config/sneak.vim
   " source $HOME/.config/nvim/plug-config/rainbow.vim
   " source $HOME/.config/nvim/plug-config/illuminate.vim
@@ -72,5 +71,5 @@ if !empty(glob("~/.config/nvim/paths.vim"))
 endif
 
 " Better nav for omnicomplete TODO figure out why this is being overridden
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+" inoremap <expr> <c-j> ("\<C-n>")
+" inoremap <expr> <c-k> ("\<C-p>")

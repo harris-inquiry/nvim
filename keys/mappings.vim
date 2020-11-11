@@ -11,19 +11,19 @@ vnoremap > >gv
 
 " My remaps
 nnoremap <C-l> zz
-noremap <silent> <C-t> :CocCommand explorer --toggle --sources=file+<CR>
+noremap <silent> <C-t> :NERDTreeToggle<CR>
 
 " Emacs movement
 noremap <C-f> <Right>
 noremap! <C-f> <Right>
 noremap <C-b> <Left>
 noremap! <C-b> <Left>
-" inoremap <C-n> <Down>
-" inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
 inoremap <C-e> <End>
 inoremap <C-a> <C-o>^
 cnoremap <C-a> <Home>
-inoremap <C-d> <Del>
+noremap! <C-d> <Del>
 inoremap <C-k> <C-o>d$
 inoremap <C-_> <C-o>:undo<cr>
 inoremap <M-_> <C-o>:redo<cr>
@@ -34,6 +34,7 @@ noremap! <C-g> <C-c>
 " better movement
 map 0 ^
 map - $
+
 
 " ERROR: Can't seem to map the '/' key
 " noremap <C-/> :Commentary<cr>
@@ -57,19 +58,13 @@ else
   " inoremap <c-u> <ESC>viwUi
   " nnoremap <c-u> viwU<Esc>
 
-  " TAB in general mode will move to text buffer
-  nnoremap <silent> <TAB> :bnext<CR>
-  " SHIFT-TAB will go back
-  nnoremap <silent> <S-TAB> :bprevious<CR>
-
-  " Tab movement
-  nnoremap <silent
 
   " Move selected line / block of text in visual mode
   " shift + k to move up
   " shift + j to move down
   xnoremap K :move '<-2<CR>gv-gv
   xnoremap J :move '>+1<CR>gv-gv
+
 
   " Alternate way to save
   " nnoremap <silent> <C-s> :w<CR>
@@ -108,7 +103,3 @@ else
   endif
 
 endif
-
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
