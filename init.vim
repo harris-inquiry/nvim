@@ -25,7 +25,10 @@ else
   source $HOME/.config/nvim/themes/syntax.vim
   source $HOME/.config/nvim/themes/onedark.vim
 
+
   " Plugin Configuration
+  source $HOME/.config/nvim/plug-config/vim-dokuwiki.vim
+
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
@@ -62,6 +65,7 @@ else
   " source $HOME/.config/nvim/plug-config/vista.vim
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
+  source $HOME/.config/nvim/plug-config/emmet.vim
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
