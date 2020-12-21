@@ -16,23 +16,31 @@ noremap <silent> <C-t> :NERDTreeToggle<CR>
 " Emacs movement
 noremap <C-f> <Right>
 noremap! <C-f> <Right>
+noremap! <M-f> <C-o>W
+
 noremap <C-b> <Left>
 noremap! <C-b> <Left>
+let g:AutoPairsShortcutBackInsert = ''
+noremap! <M-b> <C-o>B
+
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
-inoremap <C-e> <End>
-inoremap <C-a> <C-o>^
-cnoremap <C-a> <Home>
+
+noremap! <C-e> <End>
+noremap <C-a> <Home>
+noremap! <C-a> <Home>
+
 noremap! <C-d> <Del>
+inoremap <M-d> <C-o>dW
 inoremap <C-k> <C-o>d$
 inoremap <C-_> <C-o>:undo<cr>
 inoremap <M-_> <C-o>:redo<cr>
+inoremap <M-BS> <C-w>
 " Emacs escape
 noremap <C-g> <Esc>
 noremap! <C-g> <C-c>
 
 " better movement
-map 0 ^
 map - $
 
 
